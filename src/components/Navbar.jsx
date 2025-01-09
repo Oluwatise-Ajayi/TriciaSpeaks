@@ -8,15 +8,7 @@ const Navbar = () => {
   };
   return (
     <div className="bg-black text-gray-400 h-[100px] max-w-[1200px] mx-auto flex justify-between items-center">
-      <h1
-        className="text-3xl font-bold  ml-4  bg-clip-text text-transparent"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, crimson 0.7%,red 0.5%,blue 6.5%)",
-        }}
-      >
-        Odun
-      </h1>
+      <h1 className="text-3xl font-bold  ml-4  primary-color">Odun</h1>
       <ul className="hidden md:flex">
         <li className="p-5 hover:text-primary-color">
           <a href="#about">About</a>
@@ -35,11 +27,11 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed h-full left-0 top-0 w-[60%] bg-[#202121] ease-in-out duration-500"
+            ? "z-10 fixed h-full left-0 top-0 w-[60%] bg-[#202121] ease-in-out duration-500"
             : "fixed left-[-100%]"
         }
       >
-        <h1 className="text-3xl text-red-500 m-4">Odun</h1>
+        <h1 className="text-3xl primary-color m-4">Odun</h1>
         <ul className="p-8 text-2xl">
           <li className="p-2">
             <a href="#about">about</a>
