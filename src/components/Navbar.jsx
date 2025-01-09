@@ -8,7 +8,11 @@ const Navbar = () => {
   };
   return (
     <div className="bg-black text-gray-400 h-[100px] max-w-[1200px] mx-auto flex justify-between items-center">
-      <h1 className="text-3xl font-bold  ml-4  primary-color">Odun</h1>
+      <h1
+        className="text-3xl font-bold  ml-4  primary-color"
+      >
+        Odun
+      </h1>
       <ul className="hidden md:flex">
         <li className="p-5 hover:text-primary-color">
           <a href="#about">About</a>
