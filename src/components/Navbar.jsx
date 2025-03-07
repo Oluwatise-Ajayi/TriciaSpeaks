@@ -30,7 +30,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <h1 className="text-3xl font-bold primary-color">TriciaSpeaks</h1>
+        <h1 className="text-3xl font-bold primary-color"><a href="/">TriciaSpeaks</a></h1>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 text-gray-400">
