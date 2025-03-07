@@ -20,7 +20,7 @@ const About = () => {
       </div>
 
       <div className="text-center mt-10">
-        <a href="#contact" className="bg-indigo-600 text-white py-3 px-6 rounded-md font-medium shadow hover:bg-indigo-500">
+        <a href="#Contact" className="bg-indigo-600 text-white py-3 px-6 rounded-md font-medium shadow hover:bg-indigo-500">
           Let's Work Together
         </a>
       </div>

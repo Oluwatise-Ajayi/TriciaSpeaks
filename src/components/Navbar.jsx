@@ -11,41 +11,50 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
+      setScrolling(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Smooth Scrolling Function
+  const scrollToSection = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setNav(false); // Close mobile menu after clicking a link
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolling ? "bg-black shadow-lg" : "bg-transparent"
-      } transition-all duration-300`}
+      }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <h1 className="text-3xl font-bold primary-color"><a href="/">TriciaSpeaks</a></h1>
+        <h1 className="text-3xl font-bold primary-color">
+          <a href="/">TriciaSpeaks</a>
+        </h1>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 text-gray-400">
-          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500 ">
-            <a href="/">Home</a>
-          </li>
-          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
-            <a href="#About">About</a>
-          </li>
-          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
-            <a href="#Services">Services</a>
-          </li>
-          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
-            <a href="#Contact">Contact</a>
-          </li>
+          {["Home", "About", "Services", "Contact"].map((item, index) => (
+            <li key={index}>
+              <a
+                href={`#${item}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(`#${item}`);
+                }}
+                className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Menu Icon */}
@@ -55,26 +64,19 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`${
-            nav
-              ? "fixed left-0 top-0 w-[60%] h-full bg-[#202121] ease-in-out duration-500"
-              : "fixed left-[-100%]"
-          } z-50`}
+          className={`fixed top-0 left-0 w-[60%] h-full bg-[#202121] text-gray-300 p-6 transition-transform duration-500 ${
+            nav ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
-          <h1 className="text-3xl primary-color m-4">TriciaSpeaks</h1>
-          <ul className="p-8 text-2xl space-y-4">
-            <li onClick={() => setNav(false)}>
-              <a href="/">Home</a>
-            </li>
-            <li onClick={() => setNav(false)}>
-              <a href="#About">About</a>
-            </li>
-            <li onClick={() => setNav(false)}>
-              <a href="#Services">Services</a>
-            </li>
-            <li onClick={() => setNav(false)}>
-              <a href="#Contact">Contact</a>
-            </li>
+          <h1 className="text-3xl primary-color mb-4">TriciaSpeaks</h1>
+          <ul className="text-2xl space-y-6">
+            {["Home", "About", "Services", "Contact"].map((item, index) => (
+              <li key={index} onClick={() => scrollToSection(`#${item}`)}>
+                <a href={`#${item}`} className="hover:primary-color transition">
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
