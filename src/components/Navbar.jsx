@@ -34,16 +34,16 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 text-gray-400">
-          <li className="hover:text-black transition duration-300">
+          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500 ">
             <a href="/">Home</a>
           </li>
-          <li className="hover:text-black transition duration-300">
+          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
             <a href="#About">About</a>
           </li>
-          <li className="hover:text-black transition duration-300">
+          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
             <a href="#Services">Services</a>
           </li>
-          <li className="hover:text-black transition duration-300">
+          <li className="font-bold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent transition duration-300 ease-in-out hover:from-pink-500 hover:to-indigo-500">
             <a href="#Contact">Contact</a>
           </li>
         </ul>
@@ -56,7 +56,9 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           className={`${
-            nav ? "fixed left-0 top-0 w-[60%] h-full bg-[#202121] ease-in-out duration-500" : "fixed left-[-100%]"
+            nav
+              ? "fixed left-0 top-0 w-[60%] h-full bg-[#202121] ease-in-out duration-500"
+              : "fixed left-[-100%]"
           } z-50`}
         >
           <h1 className="text-3xl primary-color m-4">TriciaSpeaks</h1>
